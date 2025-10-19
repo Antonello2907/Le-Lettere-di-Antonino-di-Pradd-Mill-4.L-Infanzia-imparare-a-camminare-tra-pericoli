@@ -1,0 +1,334 @@
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lettera n.4 – L'infanzia: imparare a camminare tra i pericoli - Le Lettere di Antonino</title>
+  <style>
+    /* TEMA SPIRITUALE - COLORI PRINCIPALI */
+    :root {
+      --colore-notte: #1a1a2e;
+      --colore-crepuscolo: #16213e;
+      --colore-oro: #d4af37;
+      --colore-oro-trasparente: rgba(212, 175, 55, 0.1);
+      --colore-testo: #f1f1f1;
+      --colore-testo-secondario: #b8b8b8;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(135deg, var(--colore-notte), var(--colore-crepuscolo));
+      color: var(--colore-testo);
+      font-family: 'Georgia', serif;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* HEADER EROICO */
+    .hero {
+      background: linear-gradient(rgba(26, 26, 46, 0.8), rgba(22, 33, 62, 0.9)), 
+                  url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%231a1a2e" width="1200" height="800"/><circle fill="%23d4af37" opacity="0.05" cx="200" cy="200" r="100"/><circle fill="%23d4af37" opacity="0.03" cx="800" cy="400" r="150"/><circle fill="%23d4af37" opacity="0.07" cx="1000" cy="150" r="80"/></svg>');
+      min-height: 30vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      z-index: 2;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--colore-oro);
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      font-weight: normal;
+      letter-spacing: 2px;
+    }
+
+    .hero .sottotitolo {
+      font-size: 1.2rem;
+      color: var(--colore-testo-secondario);
+      font-style: italic;
+    }
+
+    /* NAVIGATION */
+    .navbar {
+      background: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      padding: 1rem;
+    }
+
+    .navbar li {
+      margin: 0 1.5rem;
+    }
+
+    .navbar a {
+      color: var(--colore-testo);
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    .navbar a:hover {
+      color: var(--colore-oro);
+    }
+
+    .navbar a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background: var(--colore-oro);
+      transition: width 0.3s ease;
+    }
+
+    .navbar a:hover::after {
+      width: 100%;
+    }
+
+    /* CONTENUTO LETTERA */
+    .contenuto-lettera {
+      max-width: 800px;
+      margin: 3rem auto;
+      padding: 0 2rem;
+    }
+
+    .intestazione-lettera {
+      text-align: center;
+      margin-bottom: 3rem;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+      padding-bottom: 2rem;
+    }
+
+    .intestazione-lettera h1 {
+      font-size: 2.2rem;
+      color: var(--colore-oro);
+      margin-bottom: 1rem;
+    }
+
+    .data-lettera {
+      color: var(--colore-testo-secondario);
+      font-size: 1rem;
+      font-style: italic;
+    }
+
+    .testo-lettera {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 3rem;
+    }
+
+    .testo-lettera p {
+      margin-bottom: 1.5rem;
+      text-align: justify;
+    }
+
+    .firma-lettera {
+      text-align: right;
+      font-style: italic;
+      color: var(--colore-oro);
+      margin-top: 3rem;
+      border-top: 1px solid rgba(212, 175, 55, 0.2);
+      padding-top: 1rem;
+    }
+
+    /* CITAZIONE SPECIALE */
+    .citazione {
+      background: var(--colore-oro-trasparente);
+      border-left: 4px solid var(--colore-oro);
+      padding: 1.5rem;
+      margin: 2rem 0;
+      font-style: italic;
+      border-radius: 0 8px 8px 0;
+    }
+
+    /* BOTTONI */
+    .btn {
+      display: inline-block;
+      padding: 12px 30px;
+      background: transparent;
+      color: var(--colore-oro);
+      border: 2px solid var(--colore-oro);
+      text-decoration: none;
+      border-radius: 30px;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+    }
+
+    .btn:hover {
+      background: var(--colore-oro);
+      color: var(--colore-notte);
+      transform: translateY(-2px);
+    }
+
+    .navigazione-lettere {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(212, 175, 55, 0.2);
+    }
+
+    /* FOOTER */
+    footer {
+      background: rgba(0, 0, 0, 0.5);
+      text-align: center;
+      padding: 2rem;
+      margin-top: 4rem;
+      color: var(--colore-testo-secondario);
+      border-top: 1px solid rgba(212, 175, 55, 0.2);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      
+      .contenuto-lettera {
+        padding: 0 1rem;
+        margin: 2rem auto;
+      }
+      
+      .navigazione-lettere {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+      }
+      
+      .navbar ul {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Le Lettere di Antonino</h1>
+      <p class="sottotitolo">di Pradd Mill</p>
+    </div>
+  </header>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#lettere">Altre Lettere</a></li>
+      <li><a href="index.html#capitoli">I Capitoli</a></li>
+      <li><a href="index.html#contatti">Contatti</a></li>
+    </ul>
+  </nav>
+
+  <!-- CONTENUTO LETTERA -->
+  <main class="contenuto-lettera">
+    <div class="intestazione-lettera">
+      <h1>Lettera n.4 – L'infanzia: imparare a camminare tra i pericoli</h1>
+      <div class="data-lettera">I primi passi verso la vita</div>
+    </div>
+
+    <div class="testo-lettera">
+      <!-- INIZIO CONTENUTO -->
+      <p>L'infanzia è quel tempo in cui tutto sembra grande: la casa, la strada, le persone, i sogni.</p>
+      
+      <p>E tu sei piccolo, ma pieno di curiosità.</p>
+      
+      <p>Ogni cosa è nuova, ogni giorno è un'avventura, ma anche un campo minato dove impari presto che non tutto ciò che luccica è oro.</p>
+
+      <p>Ricordo i primi passi, non solo quelli con le gambe, ma quelli dell'anima.</p>
+      
+      <p>Camminare in mezzo al mondo non è mai stato facile, nemmeno da bambino.</p>
+      
+      <p>C'erano le prime paure, i primi rimproveri, le prime scoperte di quanto la vita possa essere dura anche quando sei piccolo.</p>
+      
+      <p>Ma dentro tutto questo c'era anche la voglia di capire, di crescere, di imparare a non cadere troppo spesso.</p>
+
+      <div class="citazione">
+        "Cammina dritto e guarda avanti, ma attento a dove metti i piedi."
+      </div>
+
+      <p>Mia madre diceva sempre questa frase. Solo dopo ho capito cosa voleva dire.</p>
+      
+      <p>Ci sono persone, tentazioni, occasioni che sembrano buone ma nascondono un morso.</p>
+      
+      <p>Sono gli scorpioni e i serpenti del mondo, quelli che non strisciano per terra ma dentro i cuori.</p>
+      
+      <p>Ti sorridono, ti offrono qualcosa di bello, e poi ti tolgono la pace.</p>
+
+      <p>Da piccolo forse non capivo bene tutto questo, ma lo sentivo.</p>
+      
+      <p>Lo percepivo negli occhi di chi mentiva, nelle parole dolci che puzzavano di inganno.</p>
+      
+      <p>La vita ti insegna presto a distinguere la verità dalle maschere, anche se a volte ti lascia cicatrici per farlo.</p>
+
+      <p>L'infanzia è una scuola silenziosa.</p>
+      
+      <p>Ti insegna a cadere, a rialzarti, a chiedere scusa e a perdonare.</p>
+      
+      <p>È in quei primi anni che impari la differenza tra chi ti tende la mano per aiutarti e chi lo fa per tirarti giù.</p>
+      
+      <p>E allora cominci a fidarti solo di chi non ti chiede niente in cambio, di chi ti ama semplicemente perché ci sei.</p>
+
+      <p>Oggi guardo indietro e vedo quel bambino che cercava di capire come stare al mondo.</p>
+      
+      <p>Un bambino che a volte si sentiva solo, ma che aveva dentro una luce che nessuna oscurità è riuscita a spegnere.</p>
+      
+      <p>Forse era quella la voce della mia chiamata, già allora, quando ancora non sapevo pregare ma sentivo che Qualcuno mi ascoltava.</p>
+
+      <p>Crescere è questo: imparare a camminare senza smettere di credere.</p>
+      
+      <p>Camminare tra i pericoli, tra gli inganni, tra le prove, ma con la certezza che ogni passo — anche quello sbagliato — ti avvicina a qualcosa di più grande.</p>
+
+      <p>E se oggi riesco ancora a camminare, è perché quel bambino dentro di me non ha mai smesso di provarci.</p>
+      
+      <p>Nonostante tutto.</p>
+      <!-- FINE CONTENUTO -->
+
+      <div class="firma-lettera">
+        <p>Con affetto,<br>Antonino +</p>
+      </div>
+    </div>
+
+    <div class="navigazione-lettere">
+      <a href="lettera-3.html" class="btn">← Lettera Precedente</a>
+      <a href="index.html" class="btn">Torna alla Home</a>
+      <a href="lettera-5.html" class="btn">Lettera Successiva →</a>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Le Lettere di Antonino – di Pradd Mill</p>
+    <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.7;">
+      "Ogni parola è un piccolo ritorno verso casa"
+    </p>
+  </footer>
+
+</body>
+</html>
